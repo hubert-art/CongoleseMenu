@@ -115,7 +115,7 @@ const Menu: React.FC = () => {
 
   try {
     const response = await axios.post(
-      'http://localhost:3000/mpesa/stk',
+      'https://congolesemenu-backend.onrender.com//mpesa/stk',
       {
         phone,
         amount: total,
