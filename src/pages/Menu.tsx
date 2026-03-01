@@ -7,6 +7,7 @@ interface CartItem {
   nom: string;
   quantity: number;
   prix: number;
+  img: string; 
 }
 const plats = [
   {
@@ -88,7 +89,7 @@ const Menu: React.FC = () => {
   const [phone, setPhone] = useState('');
 
 
-  const handleUpdate = (nom: string, quantity: number, prix: number) => {
+  const handleUpdate = (nom: string, quantity: number, prix: number, img: string) => {
     setCart((prev) => {
       const existing = prev.find((item) => item.nom === nom);
 
@@ -98,7 +99,7 @@ const Menu: React.FC = () => {
         );
       }
 
-      return [...prev, { nom, quantity, prix }];
+      return [...prev, { nom, quantity, prix, img }];
     });
   };
 
@@ -119,6 +120,12 @@ const Menu: React.FC = () => {
       {
         phone,
         amount: total,
+        items: cart.map(item => ({
+        name: item.nom,
+        price: item.prix,
+        quantity: item.quantity,
+        image: item.img,
+    })),
       }
     );
 

@@ -6,7 +6,7 @@ interface ArticleProps {
   prix: number;
   img: string;
   description: string;
-  onUpdate: (nom: string, quantity: number, prix: number) => void;
+  onUpdate: (nom: string, quantity: number, prix: number, img: string) => void;
 }
 
 const Article: React.FC<ArticleProps> = ({
@@ -20,7 +20,7 @@ const Article: React.FC<ArticleProps> = ({
   const handleChange = (value: number) => {
     const newQuantity = Math.max(0, quantity + value);
     setQuantity(newQuantity);
-    onUpdate(nom, newQuantity, prix);
+    onUpdate(nom, newQuantity, prix, img);
   };
 
   return (
